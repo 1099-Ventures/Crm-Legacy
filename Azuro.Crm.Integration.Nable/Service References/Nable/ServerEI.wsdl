@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://www.n-able.com/mickey" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://www.n-able.com/mickey" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns1="http://www.n-able.com/mickey" targetNamespace="http://www.n-able.com/mickey" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.n-able.com/mickey">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="DeviceData">
+        <xsd:sequence>
+          <xsd:element name="DeviceID" nillable="true" type="xsd:int" />
+          <xsd:element name="Deleted" nillable="true" type="xsd:boolean" />
+          <xsd:element name="InstallationDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="IPAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="DeviceClass" nillable="true" type="xsd:string" />
+          <xsd:element name="OS_ReportedOS" nillable="true" type="xsd:string" />
+          <xsd:element name="OS_ServicePackVersion" nillable="true" type="xsd:string" />
+          <xsd:element name="OS_Version" nillable="true" type="xsd:string" />
+          <xsd:element name="ComputerName" nillable="true" type="xsd:string" />
+          <xsd:element name="PhysicalMemoryBytes" nillable="true" type="xsd:long" />
+          <xsd:element name="ComputerSystemManufacturer" nillable="true" type="xsd:string" />
+          <xsd:element name="ComputerSystemProductModel" nillable="true" type="xsd:string" />
+          <xsd:element name="ComputerSystemSerialNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="CPUSpeedMHz" nillable="true" type="xsd:string" />
+          <xsd:element name="CPUCount" nillable="true" type="xsd:int" />
+          <xsd:element name="HardDrives" nillable="true" type="tns1:ArrayOf_tns1_DeviceHardDriveData" />
+          <xsd:element name="CustomerName" nillable="true" type="xsd:string" />
+          <xsd:element name="CustomerID" nillable="true" type="xsd:int" />
+          <xsd:element name="SOCustomerName" nillable="true" type="xsd:string" />
+          <xsd:element name="SOCustomerID" nillable="true" type="xsd:int" />
+          <xsd:element name="NableURL" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_DeviceData">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:DeviceData[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_KeyPair">
+        <xsd:sequence>
+          <xsd:element name="Key" nillable="true" type="xsd:string" />
+          <xsd:element name="Value" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_T_KeyPair">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:T_KeyPair[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeviceIssue">
+        <xsd:sequence>
+          <xsd:element name="Issue" nillable="true" type="tns1:ArrayOf_tns1_T_KeyPair" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_DeviceIssue">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:DeviceIssue[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Customer">
+        <xsd:sequence>
+          <xsd:element name="Info" nillable="true" type="tns1:ArrayOf_tns1_T_KeyPair" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_Customer">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:Customer[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Device">
+        <xsd:sequence>
+          <xsd:element name="Info" nillable="true" type="tns1:ArrayOf_tns1_T_KeyPair" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_Device">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:Device[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeviceStatus">
+        <xsd:sequence>
+          <xsd:element name="Info" nillable="true" type="tns1:ArrayOf_tns1_T_KeyPair" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_DeviceStatus">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:DeviceStatus[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="JobStatus">
+        <xsd:sequence>
+          <xsd:element name="Info" nillable="true" type="tns1:ArrayOf_tns1_T_KeyPair" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_JobStatus">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:JobStatus[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeviceHardDriveData">
+        <xsd:sequence>
+          <xsd:element name="CapacityBytes" nillable="true" type="xsd:long" />
+          <xsd:element name="UsedBytes" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_DeviceHardDriveData">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:DeviceHardDriveData[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeviceReportData">
+        <xsd:sequence>
+          <xsd:element name="CustomerName" nillable="true" type="xsd:string" />
+          <xsd:element name="CustomerID" nillable="true" type="xsd:int" />
+          <xsd:element name="SOCustomerName" nillable="true" type="xsd:string" />
+          <xsd:element name="SOCustomerID" nillable="true" type="xsd:int" />
+          <xsd:element name="NumDevices" nillable="true" type="xsd:int" />
+          <xsd:element name="NumServerDevices" nillable="true" type="xsd:int" />
+          <xsd:element name="NumWorkstationDevices" nillable="true" type="xsd:int" />
+          <xsd:element name="NumWinServerDevices" nillable="true" type="xsd:int" />
+          <xsd:element name="NumWinWorkstationDevices" nillable="true" type="xsd:int" />
+          <xsd:element name="NumLowDiskServers" nillable="true" type="xsd:int" />
+          <xsd:element name="Devices" nillable="true" type="tns1:ArrayOf_tns1_DeviceReportDeviceData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_DeviceReportData">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:DeviceReportData[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeviceReportDeviceData">
+        <xsd:sequence>
+          <xsd:element name="DeviceID" nillable="true" type="xsd:int" />
+          <xsd:element name="DeviceClass" nillable="true" type="xsd:string" />
+          <xsd:element name="ServerAvailabilityPercentage" nillable="true" type="xsd:float" />
+          <xsd:element name="HardDrives" nillable="true" type="tns1:ArrayOf_tns1_DeviceHardDriveData" />
+          <xsd:element name="CPUUtilizationPercentage" nillable="true" type="xsd:float" />
+          <xsd:element name="MemoryUtilizationPercentage" nillable="true" type="xsd:float" />
+          <xsd:element name="NumViruses" nillable="true" type="xsd:int" />
+          <xsd:element name="NumBackupPasses" nillable="true" type="xsd:int" />
+          <xsd:element name="NumBackupWarnings" nillable="true" type="xsd:int" />
+          <xsd:element name="NumBackupFailures" nillable="true" type="xsd:int" />
+          <xsd:element name="NumPatchAlerts" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_DeviceReportDeviceData">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:DeviceReportDeviceData[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_Credentials">
+        <xsd:sequence>
+          <xsd:element name="Username" nillable="true" type="xsd:string" />
+          <xsd:element name="Password" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T_Pair">
+        <xsd:sequence>
+          <xsd:element name="Key" nillable="true" type="xsd:string" />
+          <xsd:element name="Value" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_T_Pair">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:T_Pair[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_KeyValue">
+        <xsd:sequence>
+          <xsd:element name="Key" nillable="true" type="xsd:string" />
+          <xsd:element name="Value" nillable="true" type="tns1:ArrayOf_xsd_string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_T_KeyValue">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:T_KeyValue[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DeviceInfo">
+        <xsd:sequence>
+          <xsd:element name="Info" nillable="true" type="tns1:ArrayOf_tns1_T_KeyValue" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_DeviceInfo">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:DeviceInfo[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_xsd_string">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_xsd_int">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="xsd:int[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_AuditorSettings">
+        <xsd:sequence>
+          <xsd:element name="MenuURL" nillable="true" type="xsd:string" />
+          <xsd:element name="AdminURL" nillable="true" type="xsd:string" />
+          <xsd:element name="NcWSURL" nillable="true" type="xsd:string" />
+          <xsd:element name="DataSourceID" type="xsd:int" />
+          <xsd:element name="ExportIP" nillable="true" type="xsd:string" />
+          <xsd:element name="ExportPort" type="xsd:int" />
+          <xsd:element name="ExportODS" nillable="true" type="xsd:string" />
+          <xsd:element name="ExportUser" nillable="true" type="xsd:string" />
+          <xsd:element name="ExportPassword" nillable="true" type="xsd:string" />
+          <xsd:element name="NcompassExportVersion" nillable="true" type="xsd:string" />
+          <xsd:element name="NcentralIP" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T_User">
+        <xsd:sequence>
+          <xsd:element name="UserID" nillable="true" type="xsd:int" />
+          <xsd:element name="CustomerID" nillable="true" type="xsd:int" />
+          <xsd:element name="Username" nillable="true" type="xsd:string" />
+          <xsd:element name="PasswordMD5" nillable="true" type="xsd:string" />
+          <xsd:element name="LastLogin" nillable="true" type="xsd:string" />
+          <xsd:element name="Title" nillable="true" type="xsd:string" />
+          <xsd:element name="FirstName" nillable="true" type="xsd:string" />
+          <xsd:element name="LastName" nillable="true" type="xsd:string" />
+          <xsd:element name="Email1" nillable="true" type="xsd:string" />
+          <xsd:element name="Phone1" nillable="true" type="xsd:string" />
+          <xsd:element name="Extension1" nillable="true" type="xsd:string" />
+          <xsd:element name="Department" nillable="true" type="xsd:string" />
+          <xsd:element name="Street1" nillable="true" type="xsd:string" />
+          <xsd:element name="Street2" nillable="true" type="xsd:string" />
+          <xsd:element name="City" nillable="true" type="xsd:string" />
+          <xsd:element name="StateProv" nillable="true" type="xsd:string" />
+          <xsd:element name="Country" nillable="true" type="xsd:string" />
+          <xsd:element name="PostalCode" nillable="true" type="xsd:string" />
+          <xsd:element name="IsEnabled" nillable="true" type="xsd:boolean" />
+          <xsd:element name="PrimaryAccount" nillable="true" type="xsd:string" />
+          <xsd:element name="AutoSO_Power" nillable="true" type="xsd:boolean" />
+          <xsd:element name="AutoSO_User" nillable="true" type="xsd:boolean" />
+          <xsd:element name="IsLDAP" nillable="true" type="xsd:boolean" />
+          <xsd:element name="IsLocked" nillable="true" type="xsd:boolean" />
+          <xsd:element name="IsPasswordExpired" nillable="true" type="xsd:boolean" />
+          <xsd:element name="NcompassEnabled" nillable="true" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RepositoryItem">
+        <xsd:sequence>
+          <xsd:element name="RepositoryItemUUID" nillable="true" type="xsd:string" />
+          <xsd:element name="Name" nillable="true" type="xsd:string" />
+          <xsd:element name="Description" nillable="true" type="xsd:string" />
+          <xsd:element name="LastUploadDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="PolicyFile" nillable="true" type="xsd:base64Binary" />
+          <xsd:element name="RemoteCategory" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_RepositoryItem">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:RepositoryItem[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_ReportManagerLicenseOptions">
+        <xsd:sequence>
+          <xsd:element name="ReportManagerAccess" type="xsd:boolean" />
+          <xsd:element name="DataRetention" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T_ReportManagerExportTableConfig">
+        <xsd:sequence>
+          <xsd:element name="ServiceItemID" type="xsd:int" />
+          <xsd:element name="ExportType" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_T_ReportManagerExportTableConfig">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:T_ReportManagerExportTableConfig[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_Limit">
+        <xsd:sequence>
+          <xsd:element name="ShortDesc" type="xsd:string" />
+          <xsd:element name="Value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_T_Limit">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:T_Limit[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_Option">
+        <xsd:sequence>
+          <xsd:element name="ShortDesc" type="xsd:string" />
+          <xsd:element name="Value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_T_Option">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:T_Option[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_Password">
+        <xsd:sequence>
+          <xsd:element name="Account" type="xsd:string" />
+          <xsd:element name="Password" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_tns1_T_Password">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute wsdl:arrayType="tns1:T_Password[]" ref="soapenc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="T_LicenseDetails">
+        <xsd:sequence>
+          <xsd:element name="GeneratedTime" type="xsd:string" />
+          <xsd:element name="ServerIdentifier" type="xsd:string" />
+          <xsd:element name="uri" type="xsd:string" />
+          <xsd:element name="Version" type="xsd:string" />
+          <xsd:element name="Limits" type="tns1:ArrayOf_tns1_T_Limit" />
+          <xsd:element name="Options" type="tns1:ArrayOf_tns1_T_Option" />
+          <xsd:element name="Passwords" type="tns1:ArrayOf_tns1_T_Password" />
+          <xsd:element name="ActivatedOn" type="xsd:string" />
+          <xsd:element name="ExpiresOn" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T_SignedLicenseDetails">
+        <xsd:sequence>
+          <xsd:element name="Signature" type="xsd:base64Binary" />
+          <xsd:element name="LicenseDetails" type="tns1:T_LicenseDetails" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T_ReturnCode">
+        <xsd:sequence>
+          <xsd:element name="code" type="xsd:int" />
+          <xsd:element name="message" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RepositoryItemListRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="CustomerID" type="xsd:int" />
+    <wsdl:part name="IncludeAncestorItems" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="RepositoryItemListResponse">
+    <wsdl:part name="RepositoryItemArray" type="tns1:ArrayOf_tns1_RepositoryItem" />
+  </wsdl:message>
+  <wsdl:message name="RepositoryItemGetRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="RepositoryItemUUID" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="RepositoryItemGetResponse">
+    <wsdl:part name="RepositoryItem" type="tns1:RepositoryItem" />
+  </wsdl:message>
+  <wsdl:message name="RepositoryItemPublishRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="CustomerID" type="xsd:int" />
+    <wsdl:part name="RepositoryItem" type="tns1:RepositoryItem" />
+    <wsdl:part name="Overwrite" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="RepositoryItemPublishResponse">
+    <wsdl:part name="LastUploadDate" type="xsd:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="AcknowledgeNotificationRequest">
+    <wsdl:part name="ActiveNotificationTriggerIDArray" type="tns1:ArrayOf_xsd_int" />
+    <wsdl:part name="CorrelatedProfileIDArray" type="tns1:ArrayOf_xsd_int" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Note" type="xsd:string" />
+    <wsdl:part name="AddToDeviceNotes" type="xsd:boolean" />
+    <wsdl:part name="SuppressOnEscalation" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="AcknowledgeNotificationResponse" />
+  <wsdl:message name="DeviceAssetInfoExportRequest">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="DeviceAssetInfoExportResponse">
+    <wsdl:part name="Data" type="tns1:ArrayOf_tns1_DeviceData" />
+  </wsdl:message>
+  <wsdl:message name="DeviceAssetInfoExport2Request">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="DeviceAssetInfoExport2Request2">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyValue" />
+  </wsdl:message>
+  <wsdl:message name="DeviceAssetInfoExport2Response">
+    <wsdl:part name="Data" type="tns1:ArrayOf_tns1_Device" />
+  </wsdl:message>
+  <wsdl:message name="ActiveIssuesListRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="ActiveIssuesListResponse">
+    <wsdl:part name="Data" type="tns1:ArrayOf_tns1_DeviceIssue" />
+  </wsdl:message>
+  <wsdl:message name="PSACredentialsValidateRequest">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="PSACredentialsValidateResponse">
+    <wsdl:part name="Data" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="CustomerDeviceReportRequest">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="StartDate" type="xsd:dateTime" />
+    <wsdl:part name="EndDate" type="xsd:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="CustomerDeviceReportResponse">
+    <wsdl:part name="ReportData" type="tns1:ArrayOf_tns1_DeviceReportData" />
+  </wsdl:message>
+  <wsdl:message name="CustomerDeviceReportGetRequest">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="CustomerDeviceReportGetResponse">
+    <wsdl:part name="ReportData" type="tns1:ArrayOf_tns1_DeviceReportData" />
+  </wsdl:message>
+  <wsdl:message name="CustomerListRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="CustomerListResponse">
+    <wsdl:part name="Data" type="tns1:ArrayOf_tns1_Customer" />
+  </wsdl:message>
+  <wsdl:message name="CustomerListChildrenRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="CustomerListChildrenResponse">
+    <wsdl:part name="Data" type="tns1:ArrayOf_tns1_Customer" />
+  </wsdl:message>
+  <wsdl:message name="DeviceGetRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="DeviceGetResponse">
+    <wsdl:part name="Devices" type="tns1:ArrayOf_tns1_DeviceInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeviceGetStatusRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="DeviceGetStatusResponse">
+    <wsdl:part name="DeviceStatuses" type="tns1:ArrayOf_tns1_DeviceStatus" />
+  </wsdl:message>
+  <wsdl:message name="DeviceListRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="DeviceListResponse">
+    <wsdl:part name="Devices" type="tns1:ArrayOf_tns1_Device" />
+  </wsdl:message>
+  <wsdl:message name="SOAddRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="SOAddResponse">
+    <wsdl:part name="SOID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="CustomerAddRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="CustomerAddResponse">
+    <wsdl:part name="CustomerID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="UserAddRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="UserAddResponse">
+    <wsdl:part name="UserID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="JobStatusListRequest">
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="Settings" type="tns1:ArrayOf_tns1_T_KeyPair" />
+  </wsdl:message>
+  <wsdl:message name="JobStatusListResponse">
+    <wsdl:part name="JobStatuses" type="tns1:ArrayOf_tns1_JobStatus" />
+  </wsdl:message>
+  <wsdl:message name="LastExportResetRequest">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="LastExportResetResponse" />
+  <wsdl:message name="LastExportHardResetRequest">
+    <wsdl:part name="Version" type="xsd:string" />
+    <wsdl:part name="Username" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="LastExportHardResetResponse" />
+  <wsdl:message name="System.SetAuditorSettingsRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+    <wsdl:part name="AuditorEnabled" type="xsd:boolean" />
+    <wsdl:part name="AuditorSettings" type="tns1:ArrayOf_tns1_T_Pair" />
+  </wsdl:message>
+  <wsdl:message name="System.SetAuditorSettingsResponse">
+    <wsdl:part name="Msg" type="xsd:string" />
+    <wsdl:part name="NewCredentials" type="tns1:T_Credentials" />
+  </wsdl:message>
+  <wsdl:message name="System.SetAuditorSettingsResponse2">
+    <wsdl:part name="Msg" type="xsd:string" />
+    <wsdl:part name="SelfMonitoringACEP" type="xsd:string" />
+    <wsdl:part name="NewCredentials" type="tns1:T_Credentials" />
+  </wsdl:message>
+  <wsdl:message name="System.GetAuditorSettingsRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+  </wsdl:message>
+  <wsdl:message name="System.GetAuditorSettingsResponse">
+    <wsdl:part name="AuditorSettings" type="tns1:T_AuditorSettings" />
+  </wsdl:message>
+  <wsdl:message name="System.VerifyAuditorSettingsRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+  </wsdl:message>
+  <wsdl:message name="System.VerifyAuditorSettingsResponse">
+    <wsdl:part name="ResultCode" type="xsd:int" />
+    <wsdl:part name="DetailedMessage" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="System.ScheduleDataPushRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+  </wsdl:message>
+  <wsdl:message name="System.ScheduleDataPushResponse">
+    <wsdl:part name="Msg" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ReportManagerExport.EnableAllRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+  </wsdl:message>
+  <wsdl:message name="ReportManagerExport.EnableAllResponse" />
+  <wsdl:message name="ReportManagerExport.EnableRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+    <wsdl:part name="TableConfigList" type="tns1:ArrayOf_tns1_T_ReportManagerExportTableConfig" />
+  </wsdl:message>
+  <wsdl:message name="ReportManagerExport.EnableResponse" />
+  <wsdl:message name="ReportManagerExport.DisableAllRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+  </wsdl:message>
+  <wsdl:message name="ReportManagerExport.DisableAllResponse" />
+  <wsdl:message name="ReportManagerExport.DisableRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+    <wsdl:part name="TableConfigList" type="tns1:ArrayOf_tns1_T_ReportManagerExportTableConfig" />
+  </wsdl:message>
+  <wsdl:message name="ReportManagerExport.DisableResponse" />
+  <wsdl:message name="ReportManagerLicenseOptions.GetRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+    <wsdl:part name="CustomerID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ReportManagerLicenseOptions.GetResponse">
+    <wsdl:part name="Options" type="tns1:T_ReportManagerLicenseOptions" />
+  </wsdl:message>
+  <wsdl:message name="System.GetUserRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+    <wsdl:part name="SessionID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="System.GetUserResponse">
+    <wsdl:part name="User" type="tns1:T_User" />
+  </wsdl:message>
+  <wsdl:message name="System.SetMonitoringTasksRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+    <wsdl:part name="Parameters" type="tns1:ArrayOf_tns1_T_Pair" />
+  </wsdl:message>
+  <wsdl:message name="System.SetMonitoringTasksResponse">
+    <wsdl:part name="Msg" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="System.GetSessionIDRequest">
+    <wsdl:part name="Credentials" type="tns1:T_Credentials" />
+    <wsdl:part name="Email" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="System.GetSessionIDResponse">
+    <wsdl:part name="SessionID" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="LicenseKeyPushRequest">
+    <wsdl:part name="SignedLicenseDetails" type="tns1:T_SignedLicenseDetails" />
+  </wsdl:message>
+  <wsdl:message name="LicenseKeyPushResponse">
+    <wsdl:part name="ReturnCode" type="tns1:T_ReturnCode" />
+  </wsdl:message>
+  <wsdl:portType name="ServerEI">
+    <wsdl:operation name="RepositoryItemList" parameterOrder="Username Password CustomerID IncludeAncestorItems">
+      <wsdl:input name="RepositoryItemListRequest" message="tns1:RepositoryItemListRequest" />
+      <wsdl:output name="RepositoryItemListResponse" message="tns1:RepositoryItemListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RepositoryItemGet" parameterOrder="Username Password RepositoryItemUUID">
+      <wsdl:input name="RepositoryItemGetRequest" message="tns1:RepositoryItemGetRequest" />
+      <wsdl:output name="RepositoryItemGetResponse" message="tns1:RepositoryItemGetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RepositoryItemPublish" parameterOrder="Username Password CustomerID RepositoryItem Overwrite">
+      <wsdl:input name="RepositoryItemPublishRequest" message="tns1:RepositoryItemPublishRequest" />
+      <wsdl:output name="RepositoryItemPublishResponse" message="tns1:RepositoryItemPublishResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AcknowledgeNotification" parameterOrder="ActiveNotificationTriggerIDArray CorrelatedProfileIDArray Username Password Note AddToDeviceNotes SuppressOnEscalation">
+      <wsdl:input name="AcknowledgeNotificationRequest" message="tns1:AcknowledgeNotificationRequest" />
+      <wsdl:output name="AcknowledgeNotificationResponse" message="tns1:AcknowledgeNotificationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceAssetInfoExport" parameterOrder="Version Username Password">
+      <wsdl:input name="DeviceAssetInfoExportRequest" message="tns1:DeviceAssetInfoExportRequest" />
+      <wsdl:output name="DeviceAssetInfoExportResponse" message="tns1:DeviceAssetInfoExportResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceAssetInfoExport2" parameterOrder="Version Username Password">
+      <wsdl:input name="DeviceAssetInfoExport2Request" message="tns1:DeviceAssetInfoExport2Request" />
+      <wsdl:output name="DeviceAssetInfoExport2Response" message="tns1:DeviceAssetInfoExport2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceAssetInfoExport2" parameterOrder="Version Username Password Settings">
+      <wsdl:input name="DeviceAssetInfoExport2Request2" message="tns1:DeviceAssetInfoExport2Request2" />
+      <wsdl:output name="DeviceAssetInfoExport2Response" message="tns1:DeviceAssetInfoExport2Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ActiveIssuesList" parameterOrder="Username Password Settings">
+      <wsdl:input name="ActiveIssuesListRequest" message="tns1:ActiveIssuesListRequest" />
+      <wsdl:output name="ActiveIssuesListResponse" message="tns1:ActiveIssuesListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PSACredentialsValidate" parameterOrder="Version Username Password">
+      <wsdl:input name="PSACredentialsValidateRequest" message="tns1:PSACredentialsValidateRequest" />
+      <wsdl:output name="PSACredentialsValidateResponse" message="tns1:PSACredentialsValidateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerDeviceReport" parameterOrder="Version Username Password StartDate EndDate">
+      <wsdl:input name="CustomerDeviceReportRequest" message="tns1:CustomerDeviceReportRequest" />
+      <wsdl:output name="CustomerDeviceReportResponse" message="tns1:CustomerDeviceReportResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerDeviceReportGet" parameterOrder="Version Username Password">
+      <wsdl:input name="CustomerDeviceReportGetRequest" message="tns1:CustomerDeviceReportGetRequest" />
+      <wsdl:output name="CustomerDeviceReportGetResponse" message="tns1:CustomerDeviceReportGetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerList" parameterOrder="Username Password Settings">
+      <wsdl:input name="CustomerListRequest" message="tns1:CustomerListRequest" />
+      <wsdl:output name="CustomerListResponse" message="tns1:CustomerListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerListChildren" parameterOrder="Username Password Settings">
+      <wsdl:input name="CustomerListChildrenRequest" message="tns1:CustomerListChildrenRequest" />
+      <wsdl:output name="CustomerListChildrenResponse" message="tns1:CustomerListChildrenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceGet" parameterOrder="Username Password Settings">
+      <wsdl:input name="DeviceGetRequest" message="tns1:DeviceGetRequest" />
+      <wsdl:output name="DeviceGetResponse" message="tns1:DeviceGetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceGetStatus" parameterOrder="Username Password Settings">
+      <wsdl:input name="DeviceGetStatusRequest" message="tns1:DeviceGetStatusRequest" />
+      <wsdl:output name="DeviceGetStatusResponse" message="tns1:DeviceGetStatusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeviceList" parameterOrder="Username Password Settings">
+      <wsdl:input name="DeviceListRequest" message="tns1:DeviceListRequest" />
+      <wsdl:output name="DeviceListResponse" message="tns1:DeviceListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SOAdd" parameterOrder="Username Password Settings">
+      <wsdl:input name="SOAddRequest" message="tns1:SOAddRequest" />
+      <wsdl:output name="SOAddResponse" message="tns1:SOAddResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAdd" parameterOrder="Username Password Settings">
+      <wsdl:input name="CustomerAddRequest" message="tns1:CustomerAddRequest" />
+      <wsdl:output name="CustomerAddResponse" message="tns1:CustomerAddResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UserAdd" parameterOrder="Username Password Settings">
+      <wsdl:input name="UserAddRequest" message="tns1:UserAddRequest" />
+      <wsdl:output name="UserAddResponse" message="tns1:UserAddResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="JobStatusList" parameterOrder="Username Password Settings">
+      <wsdl:input name="JobStatusListRequest" message="tns1:JobStatusListRequest" />
+      <wsdl:output name="JobStatusListResponse" message="tns1:JobStatusListResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LastExportReset" parameterOrder="Version Username Password">
+      <wsdl:input name="LastExportResetRequest" message="tns1:LastExportResetRequest" />
+      <wsdl:output name="LastExportResetResponse" message="tns1:LastExportResetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LastExportHardReset" parameterOrder="Version Username Password">
+      <wsdl:input name="LastExportHardResetRequest" message="tns1:LastExportHardResetRequest" />
+      <wsdl:output name="LastExportHardResetResponse" message="tns1:LastExportHardResetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="System.SetAuditorSettings" parameterOrder="Credentials AuditorEnabled AuditorSettings ">
+      <wsdl:input name="System.SetAuditorSettingsRequest" message="tns1:System.SetAuditorSettingsRequest" />
+      <wsdl:output name="System.SetAuditorSettingsResponse" message="tns1:System.SetAuditorSettingsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="System.SetAuditorSettings3" parameterOrder="Credentials AuditorEnabled AuditorSettings ">
+      <wsdl:input name="System.SetAuditorSettingsRequest" message="tns1:System.SetAuditorSettingsRequest" />
+      <wsdl:output name="System.SetAuditorSettingsResponse2" message="tns1:System.SetAuditorSettingsResponse2" />
+    </wsdl:operation>
+    <wsdl:operation name="System.GetAuditorSettings" parameterOrder="Credentials">
+      <wsdl:input name="System.GetAuditorSettingsRequest" message="tns1:System.GetAuditorSettingsRequest" />
+      <wsdl:output name="System.GetAuditorSettingsResponse" message="tns1:System.GetAuditorSettingsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="System.VerifyAuditorSettings" parameterOrder="Credentials">
+      <wsdl:input name="System.VerifyAuditorSettingsRequest" message="tns1:System.VerifyAuditorSettingsRequest" />
+      <wsdl:output name="System.VerifyAuditorSettingsResponse" message="tns1:System.VerifyAuditorSettingsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="System.ScheduleDataPush" parameterOrder="Credentials">
+      <wsdl:input name="System.ScheduleDataPushRequest" message="tns1:System.ScheduleDataPushRequest" />
+      <wsdl:output name="System.ScheduleDataPushResponse" message="tns1:System.ScheduleDataPushResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Enable" parameterOrder="Credentials">
+      <wsdl:input name="ReportManagerExport.EnableAllRequest" message="tns1:ReportManagerExport.EnableAllRequest" />
+      <wsdl:output name="ReportManagerExport.EnableAllResponse" message="tns1:ReportManagerExport.EnableAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Enable" parameterOrder="Credentials TableConfigList">
+      <wsdl:input name="ReportManagerExport.EnableRequest" message="tns1:ReportManagerExport.EnableRequest" />
+      <wsdl:output name="ReportManagerExport.EnableResponse" message="tns1:ReportManagerExport.EnableResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Disable" parameterOrder="Credentials">
+      <wsdl:input name="ReportManagerExport.DisableAllRequest" message="tns1:ReportManagerExport.DisableAllRequest" />
+      <wsdl:output name="ReportManagerExport.DisableAllResponse" message="tns1:ReportManagerExport.DisableAllResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Disable" parameterOrder="Credentials TableConfigList">
+      <wsdl:input name="ReportManagerExport.DisableRequest" message="tns1:ReportManagerExport.DisableRequest" />
+      <wsdl:output name="ReportManagerExport.DisableResponse" message="tns1:ReportManagerExport.DisableResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerLicenseOptions.Get" parameterOrder="Credentials CustomerID">
+      <wsdl:input name="ReportManagerLicenseOptions.GetRequest" message="tns1:ReportManagerLicenseOptions.GetRequest" />
+      <wsdl:output name="ReportManagerLicenseOptions.GetResponse" message="tns1:ReportManagerLicenseOptions.GetResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="System.GetUser" parameterOrder="Credentials SessionID">
+      <wsdl:input name="System.GetUserRequest" message="tns1:System.GetUserRequest" />
+      <wsdl:output name="System.GetUserResponse" message="tns1:System.GetUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="System.SetMonitoringTasks" parameterOrder="Credentials Parameters">
+      <wsdl:input name="System.SetMonitoringTasksRequest" message="tns1:System.SetMonitoringTasksRequest" />
+      <wsdl:output name="System.SetMonitoringTasksResponse" message="tns1:System.SetMonitoringTasksResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="System.GetSessionID" parameterOrder="Credentials Email Password">
+      <wsdl:input name="System.GetSessionIDRequest" message="tns1:System.GetSessionIDRequest" />
+      <wsdl:output name="System.GetSessionIDResponse" message="tns1:System.GetSessionIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LicenseKeyPush" parameterOrder="SignedLicenseDetails">
+      <wsdl:input name="LicenseKeyPushRequest" message="tns1:LicenseKeyPushRequest" />
+      <wsdl:output name="LicenseKeyPushResponse" message="tns1:LicenseKeyPushResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServerEISoapBinding" type="tns1:ServerEI">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="RepositoryItemList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="RepositoryItemListRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="RepositoryItemListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RepositoryItemGet">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="RepositoryItemGetRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="RepositoryItemGetResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RepositoryItemPublish">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="RepositoryItemPublishRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="RepositoryItemPublishResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcknowledgeNotification">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="AcknowledgeNotificationRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="AcknowledgeNotificationResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceAssetInfoExport">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="DeviceAssetInfoExportRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="DeviceAssetInfoExportResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceAssetInfoExport2">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="DeviceAssetInfoExport2Request">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="DeviceAssetInfoExport2Response">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceAssetInfoExport2">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="DeviceAssetInfoExport2Request2">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="DeviceAssetInfoExport2Response">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PSACredentialsValidate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="PSACredentialsValidateRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="PSACredentialsValidateResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveIssuesList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ActiveIssuesListRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="ActiveIssuesListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerDeviceReport">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="CustomerDeviceReportRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="CustomerDeviceReportResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerDeviceReportGet">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="CustomerDeviceReportGetRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="CustomerDeviceReportGetResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="CustomerListRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="CustomerListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerListChildren">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="CustomerListChildrenRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="CustomerListChildrenResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceGet">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="DeviceGetRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="DeviceGetResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceGetStatus">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="DeviceGetStatusRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="DeviceGetStatusResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeviceList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="DeviceListRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="DeviceListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SOAdd">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="SOAddRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="SOAddResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerAdd">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="CustomerAddRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="CustomerAddResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserAdd">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="UserAddRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="UserAddResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobStatusList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="JobStatusListRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="JobStatusListResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastExportReset">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="LastExportResetRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="LastExportResetResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastExportHardReset">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="LastExportHardResetRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="LastExportHardResetResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.SetAuditorSettings">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.SetAuditorSettingsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.SetAuditorSettingsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.SetAuditorSettings3">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.SetAuditorSettingsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.SetAuditorSettingsResponse2">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.GetAuditorSettings">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.GetAuditorSettingsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.GetAuditorSettingsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.VerifyAuditorSettings">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.VerifyAuditorSettingsRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.VerifyAuditorSettingsResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.ScheduleDataPush">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.ScheduleDataPushRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.ScheduleDataPushResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Enable">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ReportManagerExport.EnableAllRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="ReportManagerExport.EnableAllResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Enable">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ReportManagerExport.EnableRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="ReportManagerExport.EnableResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Disable">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ReportManagerExport.DisableAllRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="ReportManagerExport.DisableAllResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerExport.Disable">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ReportManagerExport.DisableRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="ReportManagerExport.DisableResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportManagerLicenseOptions.Get">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ReportManagerLicenseOptions.GetRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="ReportManagerLicenseOptions.GetResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.GetUser">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.GetUserRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.GetUserResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.SetMonitoringTasks">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.SetMonitoringTasksRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.SetMonitoringTasksResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="System.GetSessionID">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="System.GetSessionIDRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="System.GetSessionIDResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LicenseKeyPush">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="LicenseKeyPushRequest">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="LicenseKeyPushResponse">
+        <wsdlsoap:body use="encoded" namespace="http://www.n-able.com/mickey" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServerEIService">
+    <wsdl:port name="ServerEI" binding="tns1:ServerEISoapBinding">
+      <wsdlsoap:address location="http://mso.triple4cloud.com/dms/services/ServerEI" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

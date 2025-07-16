@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8AA9EE9A-F151-4DAD-8A4E-D915DF75A2CC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Azuro.Crm.SmsProcessor</RootNamespace>
+    <AssemblyName>Azuro.Crm.SmsProcessor</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Azuro.Crm.SmsProcessor.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Azuro.Crm.SmsProcessor.exe.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TrialBuild|AnyCPU'">
+    <OutputPath>bin\TrialBuild\</OutputPath>
+    <DefineConstants>TRACE;TrialBuild</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azuro.Common, Version=1.0.6387.16817, Culture=neutral, PublicKeyToken=71e289130063d638, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azuro.Common.1.0.6387.16817\lib\net452\Azuro.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Azuro.Common.WindowsService, Version=1.0.6387.16818, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azuro.Common.WindowsService.1.0.6387.16818\lib\net452\Azuro.Common.WindowsService.dll</HintPath>
+    </Reference>
+    <Reference Include="Azuro.MSMQ, Version=1.0.6387.16819, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azuro.MSMQ.1.0.6387.16819\lib\net452\Azuro.MSMQ.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SmsProcessingService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy ..\..\..\Azuro.Crm.SmsMessages\$(OutDir)*.dll /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.SmsMessageHandlers\$(OutDir)*.dll /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.Integration.Nable\$(OutDir)*.dll /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.Integration.Nable.Entities\$(OutDir)*.dll /s /d /f /y
+xcopy ..\..\..\..\Azuro.Sms.Integration\Azuro.Sms.Clickatell\$(OutDir)*.dll /s /d /f /y
+xcopy ..\..\..\..\Azuro.Sms.Integration\Azuro.Sms.Clickatell.Entities\$(OutDir)*.dll /s /d /f /y
+
+xcopy ..\..\..\Azuro.Crm.CrmIntegration.v2011\$(OutDir)*.pdb /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.Entities\$(OutDir)*.pdb /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.Integration.Common\$(OutDir)*.pdb /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.SmsMessages\$(OutDir)*.pdb /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.SmsMessageHandlers\$(OutDir)*.pdb /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.Integration.Nable\$(OutDir)*.pdb /s /d /f /y
+xcopy ..\..\..\Azuro.Crm.Integration.Nable.Entities\$(OutDir)*.pdb /s /d /f /y
+rem xcopy ..\..\..\..\Azuro.Sms.Integration\Azuro.Sms.Clickatell\$(OutDir)*.pdb /s /d /f /y
+rem xcopy ..\..\..\..\Azuro.Sms.Integration\Azuro.Sms.Clickatell.Entities\$(OutDir)*.pdb /s /d /f /y
+rem xcopy ..\..\..\..\Azuro.EnterpriseLibrary\Azuro.MSMQ\$(OutDir)*.pdb /s /d /f /y
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

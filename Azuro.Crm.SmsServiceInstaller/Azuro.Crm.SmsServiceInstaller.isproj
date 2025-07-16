@@ -1,0 +1,53 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2012SpringLimited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\Azuro.Crm.Integration.v2011\Azuro.Crm.Integration.v2011.csproj">
+			<Name>Azuro.Crm.Integration.v2011</Name>
+			<Project>{DC91E5EE-875B-4999-9750-5521666E30F8}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Azuro.Crm.SmsMessageHandlers\Azuro.Crm.SmsMessageHandlers.csproj">
+			<Name>Azuro.Crm.SmsMessageHandlers</Name>
+			<Project>{312D1634-A83D-4885-A364-0B1B3576BAC4}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Azuro.Crm.SmsPlugin.v2011\Azuro.Crm.SmsPlugin.v2011.csproj">
+			<Name>Azuro.Crm.SmsPlugin.v2011</Name>
+			<Project>{313723CF-1152-4CA0-8B39-FD07150EC3D3}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Azuro.Crm.SmsProcessor\Azuro.Crm.SmsProcessor.csproj">
+			<Name>Azuro.Crm.SmsProcessor</Name>
+			<Project>{8AA9EE9A-F151-4DAD-8A4E-D915DF75A2CC}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Azuro.Sms.ProviderAck\Azuro.Sms.ProviderAck.csproj">
+			<Name>Azuro.Sms.ProviderAck</Name>
+			<Project>{6864121F-6A5D-47C2-9225-48F5B7D90001}</Project>
+		</ProjectReference>
+	</ItemGroup>
+
+	</Project>

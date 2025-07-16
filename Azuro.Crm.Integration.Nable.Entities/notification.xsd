@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:complexType name="KeywordWithParameterNode">
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="parameter" type="xs:string" use="required"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:element name="notification">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="AcknowledgementNote" type="xs:string" minOccurs="0"/>
+<xs:element name="AcknowledgementTime" type="xs:string" minOccurs="0"/>
+<xs:element name="AcknowledgementUser" type="xs:string" minOccurs="0"/>
+<xs:element name="ActivationTime" type="xs:string" minOccurs="0"/>
+<xs:element name="ActiveNotificationTriggerID" type="xs:string" minOccurs="0"/>
+<xs:element name="ActiveProfiles" type="xs:string" minOccurs="0"/>
+<xs:element name="ActiveProfile" type="xs:string" minOccurs="0"/>
+<xs:element name="AffectedService" type="xs:string" minOccurs="0"/>
+<xs:element name="AllDeviceNotes" type="xs:string" minOccurs="0"/>
+<xs:element name="ConfigurationParameters" type="xs:string" minOccurs="0"/>
+<xs:element name="CustomerName" type="xs:string" minOccurs="0"/>
+<xs:element name="DeviceDescription" type="xs:string" minOccurs="0"/>
+<xs:element name="DeviceID" type="xs:string" minOccurs="0"/>
+<xs:element name="DeviceIP" type="xs:string" minOccurs="0"/>
+<xs:element name="DeviceName" type="xs:string" minOccurs="0"/>
+<xs:element name="DeviceProperty" type="KeywordWithParameterNode" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="DeviceURI" type="xs:string" minOccurs="0"/>
+<xs:element name="ExternalCustomerID" type="xs:string" minOccurs="0"/>
+<xs:element name="LastDeviceNote" type="xs:string" minOccurs="0"/>
+<xs:element name="NcentralURI" type="xs:string" minOccurs="0"/>
+<xs:element name="NotificationCount" type="xs:string" minOccurs="0"/>
+<xs:element name="NotificationProfileName" type="xs:string" minOccurs="0"/>
+<xs:element name="NotificationTriggerName" type="xs:string" minOccurs="0"/>
+<xs:element name="NumberOfSelfHealingRetries" type="xs:string" minOccurs="0"/>
+<xs:element name="NumericState" type="xs:string" minOccurs="0"/>
+<xs:element name="ProbeURI" type="xs:string" minOccurs="0"/>
+<xs:element name="QualitativeNewState" type="xs:string" minOccurs="0"/>
+<xs:element name="QualitativeNewStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="QualitativeOldState" type="xs:string" minOccurs="0"/>
+<xs:element name="QualitativeOldStatus" type="xs:string" minOccurs="0"/>
+<xs:element name="QuantitativeNewState" type="xs:string" minOccurs="0"/>
+<xs:element name="QuantitativeOldState" type="xs:string" minOccurs="0"/>
+<xs:element name="RemoteControlLink" type="xs:string" minOccurs="0"/>
+<xs:element name="SelfHealingAction" type="xs:string" minOccurs="0"/>
+<xs:element name="SelfHealingOption" type="xs:string" minOccurs="0"/>
+<xs:element name="SelfHealingResultDetail" type="xs:string" minOccurs="0"/>
+<xs:element name="SelfHealingResult" type="xs:string" minOccurs="0"/>
+<xs:element name="SelfHealingTriggerState" type="xs:string" minOccurs="0"/>
+<xs:element name="ServiceOrganizationName" type="xs:string" minOccurs="0"/>
+<xs:element name="SuperProfileName" type="xs:string" minOccurs="0"/>
+<xs:element name="TaskIdent" type="xs:string" minOccurs="0"/>
+<xs:element name="TaskName" type="xs:string" minOccurs="0"/>
+<xs:element name="TimeOfNotification" type="xs:string" minOccurs="0"/>
+<xs:element name="TimeOfStateChange" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>

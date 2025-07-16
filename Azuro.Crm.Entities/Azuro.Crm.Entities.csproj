@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1A1F81B4-FB79-460A-9D82-693559A83E15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Azuro.Crm.Entities</RootNamespace>
+    <AssemblyName>Azuro.Crm.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>crmcode.azuro.co.za.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TrialBuild|AnyCPU'">
+    <OutputPath>bin\TrialBuild\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azuro.Common, Version=1.0.6387.16817, Culture=neutral, PublicKeyToken=71e289130063d638, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azuro.Common.1.0.6387.16817\lib\net452\Azuro.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.5\lib\net452\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.5\lib\net452\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="ActivityParty.cs" />
+    <Compile Include="ActivityPointer.cs" />
+    <Compile Include="adminsettingsentity.cs" />
+    <Compile Include="azuro_scorecard.cs" />
+    <Compile Include="azuro_scorecarddetail.cs" />
+    <Compile Include="CallbackRegistration.cs" />
+    <Compile Include="Campaign.cs" />
+    <Compile Include="CampaignActivity.cs" />
+    <Compile Include="CampaignActivityItem.cs" />
+    <Compile Include="CampaignItem.cs" />
+    <Compile Include="CampaignResponse.cs" />
+    <Compile Include="CanvasApp.cs" />
+    <Compile Include="Case.cs" />
+    <Compile Include="CaseResolution.cs" />
+    <Compile Include="cdi_anonymousvisitor.cs" />
+    <Compile Include="cdi_automation.cs" />
+    <Compile Include="cdi_bulktxtmessage.cs" />
+    <Compile Include="cdi_bulktxtmessage_list.cs" />
+    <Compile Include="cdi_category.cs" />
+    <Compile Include="cdi_cdi_datasync_list.cs" />
+    <Compile Include="cdi_datasync.cs" />
+    <Compile Include="cdi_domain.cs" />
+    <Compile Include="cdi_emailcname.cs" />
+    <Compile Include="cdi_emailevent.cs" />
+    <Compile Include="cdi_emailsend.cs" />
+    <Compile Include="cdi_emailsend_account.cs" />
+    <Compile Include="cdi_emailsend_contact.cs" />
+    <Compile Include="cdi_emailsend_lead.cs" />
+    <Compile Include="cdi_emailsend_list.cs" />
+    <Compile Include="cdi_emailsend_suppressed_list.cs" />
+    <Compile Include="cdi_emailtemplate.cs" />
+    <Compile Include="cdi_event.cs" />
+    <Compile Include="cdi_eventparticipation.cs" />
+    <Compile Include="cdi_event_cdi_automation.cs" />
+    <Compile Include="cdi_excludedemail.cs" />
+    <Compile Include="cdi_executesend.cs" />
+    <Compile Include="cdi_executesocialpost.cs" />
+    <Compile Include="cdi_filter.cs" />
+    <Compile Include="cdi_formcapture.cs" />
+    <Compile Include="cdi_formcapturefield.cs" />
+    <Compile Include="cdi_formfield.cs" />
+    <Compile Include="cdi_import.cs" />
+    <Compile Include="cdi_importlog.cs" />
+    <Compile Include="cdi_iporganization.cs" />
+    <Compile Include="cdi_pageview.cs" />
+    <Compile Include="cdi_postedfield.cs" />
+    <Compile Include="cdi_postedform.cs" />
+    <Compile Include="cdi_postedsubscription.cs" />
+    <Compile Include="cdi_postedsurvey.cs" />
+    <Compile Include="cdi_profile.cs" />
+    <Compile Include="cdi_quicksendprivilege.cs" />
+    <Compile Include="cdi_securitysession.cs" />
+    <Compile Include="cdi_sendemail.cs" />
+    <Compile Include="cdi_sentemail.cs" />
+    <Compile Include="cdi_setting.cs" />
+    <Compile Include="cdi_socialpost.cs" />
+    <Compile Include="cdi_subscriptionlist.cs" />
+    <Compile Include="cdi_subscriptionpreference.cs" />
+    <Compile Include="cdi_surveyanswer.cs" />
+    <Compile Include="cdi_surveyquestion.cs" />
+    <Compile Include="cdi_txtmessage.cs" />
+    <Compile Include="cdi_unsubscribe.cs" />
+    <Compile Include="cdi_unsubscribe_cdi_subscriptionlist.cs" />
+    <Compile Include="cdi_usersession.cs" />
+    <Compile Include="cdi_visit.cs" />
+    <Compile Include="cdi_webcontent.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="Contract.cs" />
+    <Compile Include="ContractLine.cs" />
+    <Compile Include="ContractTemplate.cs" />
+    <Compile Include="Email.cs" />
+    <Compile Include="EmailAttachment.cs" />
+    <Compile Include="EmailTemplate.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="EscalationCondition.cs" />
+    <Compile Include="EscalationGroup.cs" />
+    <Compile Include="ExclusionTime.cs" />
+    <Compile Include="gap_PowerBIOptionsetRef.cs" />
+    <Compile Include="holidaywrapper.cs" />
+    <Compile Include="Incident.cs" />
+    <Compile Include="Lead.cs" />
+    <Compile Include="List.cs" />
+    <Compile Include="ListMember.cs" />
+    <Compile Include="MailboxTrackingCategory.cs" />
+    <Compile Include="msdyn_answer.cs" />
+    <Compile Include="msdyn_azuredeployment.cs" />
+    <Compile Include="msdyn_callablecontext.cs" />
+    <Compile Include="msdyn_callablecontext_msdyn_playbooktemplate.cs" />
+    <Compile Include="msdyn_feedbackmapping.cs" />
+    <Compile Include="msdyn_feedbacksubsurvey.cs" />
+    <Compile Include="msdyn_feedbacksubsurvey_msdyn_survey.cs" />
+    <Compile Include="msdyn_icebreakersconfig.cs" />
+    <Compile Include="msdyn_image.cs" />
+    <Compile Include="msdyn_imagetokencache.cs" />
+    <Compile Include="msdyn_import.cs" />
+    <Compile Include="msdyn_linkedanswer.cs" />
+    <Compile Include="msdyn_notesanalysisconfig.cs" />
+    <Compile Include="msdyn_orginsightsuserdashboarddefinition.cs" />
+    <Compile Include="msdyn_page.cs" />
+    <Compile Include="msdyn_playbookactivity.cs" />
+    <Compile Include="msdyn_playbookactivityattribute.cs" />
+    <Compile Include="msdyn_playbookcategory.cs" />
+    <Compile Include="msdyn_playbookinstance.cs" />
+    <Compile Include="msdyn_playbooktemplate.cs" />
+    <Compile Include="msdyn_question.cs" />
+    <Compile Include="msdyn_questiongroup.cs" />
+    <Compile Include="msdyn_questionresponse.cs" />
+    <Compile Include="msdyn_questiontype.cs" />
+    <Compile Include="msdyn_question_answer_n_n.cs" />
+    <Compile Include="msdyn_relationshipinsightsunifiedconfig.cs" />
+    <Compile Include="msdyn_responseaction.cs" />
+    <Compile Include="msdyn_responsecondition.cs" />
+    <Compile Include="msdyn_responseoutcome.cs" />
+    <Compile Include="msdyn_responserouting.cs" />
+    <Compile Include="msdyn_responserouting_msdyn_responseaction.cs" />
+    <Compile Include="msdyn_responserouting_responseaction_else.cs" />
+    <Compile Include="msdyn_section.cs" />
+    <Compile Include="msdyn_siconfig.cs" />
+    <Compile Include="msdyn_solutioncomponentdatasource.cs" />
+    <Compile Include="msdyn_solutioncomponentsummary.cs" />
+    <Compile Include="msdyn_survey.cs" />
+    <Compile Include="msdyn_surveyinvite.cs" />
+    <Compile Include="msdyn_surveylog.cs" />
+    <Compile Include="msdyn_surveyresponse.cs" />
+    <Compile Include="msdyn_TeamsCollaboration.cs" />
+    <Compile Include="msdyn_theme.cs" />
+    <Compile Include="msdyn_untrackedappointment.cs" />
+    <Compile Include="msdyn_vocconfiguration.cs" />
+    <Compile Include="NAbleConfiguration.cs" />
+    <Compile Include="Note.cs" />
+    <Compile Include="NotificationCommunication.cs" />
+    <Compile Include="ObjectTypeCode.cs" />
+    <Compile Include="Opportunity.cs" />
+    <Compile Include="OptionSets.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicHoliday.cs" />
+    <Compile Include="Queue.cs" />
+    <Compile Include="QueueItem.cs" />
+    <Compile Include="SecurityRole.cs" />
+    <Compile Include="Sms.cs" />
+    <Compile Include="SmsCampaignActivity.cs" />
+    <Compile Include="SmsConfiguration.cs" />
+    <Compile Include="SupportCalendar.cs" />
+    <Compile Include="SvcContext.cs" />
+    <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Azuro.Crm.Integration.Common\Azuro.Crm.Integration.Common.csproj">
+      <Project>{6B4291C4-C236-40EF-A21E-D82CC15E2865}</Project>
+      <Name>Azuro.Crm.Integration.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Azuro.Crm.Entities.nuspec" />
+    <None Include="crmcode.azuro.co.za.pfx" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

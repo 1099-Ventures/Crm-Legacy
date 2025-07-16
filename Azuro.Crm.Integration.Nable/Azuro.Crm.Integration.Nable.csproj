@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DAD73C65-3C24-49BA-8423-35823C020A5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Azuro.Crm.Integration.Nable</RootNamespace>
+    <AssemblyName>Azuro.Crm.Integration.Nable</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>crmcode.azuro.co.za.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TrialBuild|AnyCPU'">
+    <OutputPath>bin\TrialBuild\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azuro.Common, Version=1.0.6387.16817, Culture=neutral, PublicKeyToken=71e289130063d638, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azuro.Common.1.0.6387.16817\lib\net452\Azuro.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaseResolvedMessageHandler.cs" />
+    <Compile Include="NableConfigurationSection.cs" />
+    <Compile Include="NotificationMessageHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Nable\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Azuro.Crm.Entities\Azuro.Crm.Entities.csproj">
+      <Project>{1a1f81b4-fb79-460a-9d82-693559a83e15}</Project>
+      <Name>Azuro.Crm.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Azuro.Crm.Integration.Common\Azuro.Crm.Integration.Common.csproj">
+      <Project>{6b4291c4-c236-40ef-a21e-d82cc15e2865}</Project>
+      <Name>Azuro.Crm.Integration.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Azuro.Crm.Integration.Nable.Entities\Azuro.Crm.Integration.Nable.Entities.csproj">
+      <Project>{6752c1bd-82fb-4d24-8387-6003192e6c53}</Project>
+      <Name>Azuro.Crm.Integration.Nable.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Azuro.Crm.Workflow.SupportDesk\Azuro.Crm.Workflow.SupportDesk.csproj">
+      <Project>{46ae634d-b806-4470-83d6-383ea349fa05}</Project>
+      <Name>Azuro.Crm.Workflow.SupportDesk</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="crmcode.azuro.co.za.pfx" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.AcknowledgeNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.ActiveIssuesListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.CustomerAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.CustomerDeviceReportGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.CustomerDeviceReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.CustomerListChildrenResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.CustomerListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.DeviceAssetInfoExport2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.DeviceAssetInfoExportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.DeviceGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.DeviceGetStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.DeviceListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.JobStatusListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.LastExportHardResetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.LastExportResetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.LicenseKeyPushResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.PSACredentialsValidateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.ReportManagerExportDisableAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.ReportManagerExportDisableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.ReportManagerExportEnableAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.ReportManagerExportEnableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.ReportManagerLicenseOptionsGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.RepositoryItemGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.RepositoryItemListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.RepositoryItemPublishResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SOAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemGetAuditorSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemGetSessionIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemGetUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemScheduleDataPushResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemSetAuditorSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemSetAuditorSettingsResponse2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemSetMonitoringTasksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.SystemVerifyAuditorSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\Azuro.Crm.Integration.Nable.Nable.UserAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Nable\ServerEI.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Nable\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Nable\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Nable\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Nable\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

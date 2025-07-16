@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Azuro.CRM.SharePointIntegration.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Azuro_CRM_SharePointIntegration_ListstWS_Lists" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://zeus:1901/_vti_bin/lists.asmx</Value>
+    </Setting>
+    <Setting Name="Azuro_CRM_SharePointIntegration_ViewsWS_Views" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://zeus:1901/_vti_bin/views.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

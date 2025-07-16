@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>$author$</authors>
+		<owners>$author$</owners>
+		<summary>$description$</summary>
+		<licenseUrl>http://www.azuro.co.za/EnterpriseLibrary/license.htm</licenseUrl>
+		<projectUrl>http://www.azuro.co.za/EnterpriseLibrary/</projectUrl>
+		<iconUrl>http://www.azuro.co.za/EnterpriseLibrary/icon.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>$description$</description>
+		<releaseNotes>Initial Release.</releaseNotes>
+		<copyright>Copyright ($author$) 2016</copyright>
+		<tags>Azuro Microsoft Dynamics CRM</tags>
+		<dependencies>
+			<dependency id="NLog" version="4.3.11" />
+			<dependency id="NLog.config" version="4.3.11" />
+			<dependency id="Azuro.Common" version="1.0.5729" />
+		</dependencies>
+	</metadata>
+</package>
